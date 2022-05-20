@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Program {
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         List<Employee> employees = new ArrayList<>();
@@ -18,12 +18,13 @@ public class Program {
         System.out.println("Enter the number of employees: ");
         int nbrEmp = sc.nextInt();
 
-        for(int i = 1; i < nbrEmp; i++){
+        for(int i = 0; i < nbrEmp; i++){
+            System.out.println("Employee #" + (i + 1) + " data: ");
             System.out.println("Outsorced (y/n)?");
             String response = sc.next();
+            sc.nextLine();
 
             if(response.charAt(0) == 'y'){
-                System.out.println("Employee #" + i + "data: ");
                 System.out.print("Name: ");
                 String name= sc.nextLine();
 
@@ -38,7 +39,6 @@ public class Program {
 
                 employees.add(new OutsorcedEmployee(name, hours, valuePerHour, additionalCharge));
             } else {
-                System.out.println("Employee #" + i + "data: ");
                 System.out.print("Name: ");
                 String name= sc.nextLine();
 

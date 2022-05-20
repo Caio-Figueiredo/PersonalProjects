@@ -6,7 +6,7 @@ public class OutsorcedEmployee extends Employee{
 
     @Override
     public double payment(){
-        return super.getHours() * super.getValuePerHour() + (addiotionalCharge + (addiotionalCharge * 0.10));
+        return super.payment() + addiotionalCharge * 1.1;
     }
 
     public OutsorcedEmployee(double addiotionalCharge) {
