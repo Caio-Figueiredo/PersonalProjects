@@ -5,7 +5,6 @@ import com.tempo.project.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -24,20 +23,18 @@ public class RoleResource {
 
     @PostMapping
     public ResponseEntity<Role> createNewRole(@RequestBody Role role){
-        role = roleService.createNewRole(role);
-        return ResponseEntity.ok().body(role);
+        return ResponseEntity.ok().body(roleService.createNewRole(role));
     }
 
     @DeleteMapping
-    public ResponseEntity<Role> deleteRole(@RequestBody Role role){
+    public ResponseEntity<String> deleteRole(@RequestBody Role role){
         roleService.deleteRole(role);
-        return ResponseEntity.ok().body(role);
+        return ResponseEntity.ok().body("Role deletada!");
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Role>> findById(@PathVariable Integer id){
-        Optional<Role>foundRole = roleService.findById(id);
-        return ResponseEntity.ok().body(foundRole);
+        return ResponseEntity.ok().body(roleService.findById(id));
     }
 
 }
